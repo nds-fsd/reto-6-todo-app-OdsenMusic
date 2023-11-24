@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 
-function ColorSelector({ changeTaskAttribute }) {
+function ColorSelector({ id, changeTaskAttribute, forceReload }) {
   const createColorButton = (color) => (
     <button
-      onClick={() => changeTaskAttribute({ color })}
+      onClick={() => changeTaskAttribute(id, { color }, forceReload)}
       className={`${styles.color} ${styles[color]}`}
     ></button>
   );

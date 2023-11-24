@@ -17,7 +17,7 @@ function TaskMenu({
   deleted,
 }) {
   const toggleDeleted = async (deleted) => {
-    changeTaskAttribute({ deleted: !deleted });
+    changeTaskAttribute(id, { deleted: !deleted }, forceReload);
   };
 
   const handleDelete = () => {
@@ -31,9 +31,6 @@ function TaskMenu({
   if (!deleted) {
     return (
       <div className={style.taskMenuContainer}>
-        <button className="taskBarMenuButton">
-          <img className={style.icon} src={detailIcon} alt="" />
-        </button>
         <button className="taskBarMenuButton" key={key} onClick={handleDelete}>
           <img className={style.icon} src={trashIcon} alt="" />
         </button>

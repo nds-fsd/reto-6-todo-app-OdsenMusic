@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import style from "../NavBarGroup/styles.module.css";
 import colorIcon from "../../assets/icons/color-swatch-svgrepo-com.svg";
 import crossIcon from "../../assets/icons/cross-circle-svgrepo-com.svg";
+import {
+  changeGroupName,
+  changeGroupColor,
+  deleteGroup,
+} from "../../utils/apifunctions";
 
 export default function NavBarGroup({
   id,
@@ -12,52 +17,6 @@ export default function NavBarGroup({
   filterTasks,
   count,
 }) {
-  const url = `http://localhost:3000/groups/${id}`;
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
-  const updateGroup = async (payload) => {
-    try {
-      const response = await fetch(url, {
-        method: "PATCH",
-        headers,
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        forceReload();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const changeGroupName = (event) => {
-    if (event.target.value === "") {
-      return;
-    } else {
-      updateGroup({ name: event.target.value });
-    }
-  };
-
-  const changeGroupColor = () => {
-    const colors = ["white", "green", "yellow", "blue", "orange", "purple"];
-    const nextColor = colors[(colors.indexOf(color) + 1) % colors.length];
-    updateGroup({ color: nextColor });
-  };
-
-  const deleteGroup = async () => {
-    try {
-      const response = await fetch(url, { method: "DELETE" });
-      if (response.ok) {
-        forceReload();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, translateY: 50 }}
@@ -68,16 +27,22 @@ export default function NavBarGroup({
       className={`${style.groupFrame} ${style[color]}`}
       onClick={() => filterTasks(name)}
     >
-      <button className={style.deleteGroupButton} onClick={deleteGroup}>
+      <button
+        className={style.deleteGroupButton}
+        onClick={() => deleteGroup(id, forceReload)}
+      >
         <img className={style.deleteGroupImg} src={crossIcon} alt="" />
       </button>
-      <button onClick={changeGroupColor} className={style.personalizeColor}>
+      <button
+        onClick={() => changeGroupColor(id, color, forceReload)}
+        className={style.personalizeColor}
+      >
         <img className={style.personalizeColor} src={colorIcon} alt="" />
       </button>
       <textarea
         className={style.groupName}
         defaultValue={name}
-        onBlur={changeGroupName}
+        onBlur={() => changeGroupName(id, event, forceReload)}
         placeholder="Nuevo grupo"
         maxLength="13"
       >

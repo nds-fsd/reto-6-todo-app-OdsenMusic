@@ -7,6 +7,7 @@ import plusIcon from "/icons/plus-circle-svgrepo-com.svg";
 import checkIcon from "/icons/checkmark-circle-svgrepo-com (1).svg";
 import trashIcon from "/icons/trash-svgrepo-com.svg";
 import taskIcon from "/icons/clipboard-svgrepo-com (1).svg";
+import { addNewGroup } from "../../utils/apifunctions";
 
 export default function NavBar({
   filterTasks,
@@ -15,23 +16,6 @@ export default function NavBar({
   setGroupList,
   taskList,
 }) {
-  const addNewGroup = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/groups", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
-      if (response.ok) {
-        const json = await response.json();
-        setGroupList((prev) => {
-          return [...prev, json];
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <nav className={style}>
       <Logo />
@@ -77,7 +61,10 @@ export default function NavBar({
           })}
         </AnimatePresence>
       </div>
-      <button onClick={addNewGroup} className={style.addGroup}>
+      <button
+        onClick={() => addNewGroup(setGroupList)}
+        className={style.addGroup}
+      >
         <img
           className={style.addGroup}
           src={plusIcon}

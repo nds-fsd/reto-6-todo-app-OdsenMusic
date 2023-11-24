@@ -5,6 +5,7 @@ import TaskMenu from "../TaskMenu";
 import GroupSelector from "../GroupSelector";
 import style from "./styles.module.css";
 import { motion, AnimatePresence } from "framer-motion";
+import { changeTaskAttribute } from "../../utils/apifunctions";
 
 export default function Task({
   id,
@@ -19,10 +20,6 @@ export default function Task({
 }) {
   const [colorSelectorVisibility, setColorSelectorVisibility] = useState(false);
   const [groupSelectorVisibility, setGrupSelectorVisibility] = useState(false);
-  const url = `http://localhost:3000/todo/${id}`;
-  const headers = {
-    "Content-Type": "application/json",
-  };
 
   useEffect(() => {
     if (groupSelectorVisibility) {
@@ -44,24 +41,8 @@ export default function Task({
     }
   }, [colorSelectorVisibility]);
 
-  const changeTaskAttribute = async (payload) => {
-    try {
-      const response = await fetch(url, {
-        method: "PATCH",
-        headers,
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        forceReload();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const handleTextChange = (event) =>
-    changeTaskAttribute({ text: event.target.value });
+    changeTaskAttribute(id, { text: event.target.value }, forceReload);
   const handleColorSelectorVisibility = () => {
     setColorSelectorVisibility(!colorSelectorVisibility);
   };

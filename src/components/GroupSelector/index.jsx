@@ -6,6 +6,8 @@ export default function GroupSelector({
   groupList,
   group,
   changeTaskAttribute,
+  id,
+  forceReload,
 }) {
   const getButtonStyle = (groupName) => {
     return group === groupName ? styles.assignedGroup : "";
@@ -23,7 +25,7 @@ export default function GroupSelector({
         value="none"
         className={`${styles.groupSelectorButton} ${getButtonStyle("none")}`}
         onClick={() => {
-          changeTaskAttribute({ group: "none" });
+          changeTaskAttribute(id, { group: "none" }, forceReload);
         }}
       >
         Ninguno
@@ -32,7 +34,7 @@ export default function GroupSelector({
         <button
           key={e.name}
           onClick={() => {
-            changeTaskAttribute({ group: e.name });
+            changeTaskAttribute(id, { group: e.name }, forceReload);
           }}
           className={`${styles.groupSelectorButton} ${getButtonStyle(e.name)}`}
           value={e.name}

@@ -1,0 +1,52 @@
+.colorSelectorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 25px;
+  background-color: rgba(138, 138, 138, 0.221);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  bottom: -39%;
+  left: 16%;
+}
+
+.color {
+  height: 15px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-color: rgb(119, 0, 255);
+}
+
+.color:hover {
+  border: 2px solid rgb(177, 177, 177);
+}
+
+.white {
+  background-color: white;
+}
+
+.green {
+  background-color: rgb(194, 254, 194);
+}
+
+.yellow {
+  background-color: rgb(252, 252, 197);
+}
+
+.blue {
+  background-color: rgb(181, 218, 255);
+}
+
+.orange {
+  background-color: rgb(255, 206, 169);
+}
+
+.purple {
+  background-color: rgb(226, 190, 255);
+}

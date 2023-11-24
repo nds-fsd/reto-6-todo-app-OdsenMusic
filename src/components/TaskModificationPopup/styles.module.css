@@ -1,0 +1,29 @@
+.taskPopupContainer {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: calc(100% - 300px);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  top: 0%;
+  right: 0%;
+}
+
+.taskPopup {
+  height: 50%;
+  width: 30%;
+  box-shadow: 0 0 0 0;
+}
+
+textarea.taskText {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  text-wrap: wrap;
+  height: 100%;
+  width: 80%;
+  font-weight: 800;
+  padding-top: 5px;
+}

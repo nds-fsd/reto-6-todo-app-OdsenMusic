@@ -1,11 +1,11 @@
-export const newTask = async (forceReload) => {
+export const newTask = async (forceReload, color, group) => {
   try {
     const response = await fetch("http://localhost:3000/todo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ color: color, group: group }),
     });
     if (response.ok) {
-      const json = await response.json();
       forceReload();
     }
   } catch (error) {

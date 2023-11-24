@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import plusIcon from "../../assets/icons/plus-circle-svgrepo-com.svg";
 import moonIcon from "../../assets/icons/moon-svgrepo-com.svg";
 import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
+import { newTask } from "../../utils/apifunctions";
 
 function MainContent({
   toggleEditMode,
@@ -32,11 +33,14 @@ function MainContent({
           ))}
 
         {renderDeleteAllButton(taskFilter, taskList, deleteAllTasks)}
+        {renderAddTaskButton(
+          taskFilter,
+          handleCreateTask,
+          groupList,
+          forceReload
+        )}
       </AnimatePresence>
 
-      <button className="add-task" onClick={() => newTask(forceReload)}>
-        <img className="add-task" src={plusIcon} alt="Icono de crear tarea" />
-      </button>
       <button className="toggleDarkMode" onClick={handleTheme}>
         <img
           className="toggleDarkMode"
@@ -58,7 +62,12 @@ function taskFilterLogic(task, taskFilter) {
   );
 }
 
-function renderDeleteAllButton(taskFilter, taskList, deleteAllTasks) {
+function renderDeleteAllButton(
+  taskFilter,
+  taskList,
+  deleteAllTasks,
+  handleCreateTask
+) {
   if (taskFilter === "Papelera" && taskList.some((task) => task.deleted)) {
     return (
       <div className="deleteAllContainer">
@@ -76,6 +85,41 @@ function renderDeleteAllButton(taskFilter, taskList, deleteAllTasks) {
         </motion.button>
       </div>
     );
+  }
+}
+
+function renderAddTaskButton(
+  taskFilter,
+  handleCreateTask,
+  groupList,
+  forceReload
+) {
+  if (taskFilter !== "Papelera" && taskFilter !== "Tareas finalizadas") {
+    return (
+      <button
+        className="add-task"
+        onClick={() => handleCreateTask(taskFilter, groupList, forceReload)}
+      >
+        <img className="add-task" src={plusIcon} alt="Icono de crear tarea" />
+      </button>
+    );
+  }
+}
+
+function handleCreateTask(taskFilter, groupList, forceReload) {
+  console.log("elfiltro" + taskFilter);
+  if (
+    taskFilter === "Papelera" ||
+    taskFilter === "" ||
+    taskFilter === "Tareas finalizadas"
+  ) {
+    newTask(forceReload, "white", "none");
+  } else {
+    const newTaskColor = groupList.find(
+      (e) => e.name.toString() === taskFilter
+    ).color;
+
+    newTask(forceReload, newTaskColor, taskFilter);
   }
 }
 

@@ -107,7 +107,7 @@ div.viewport.darkmode {
 
 main {
   width: calc(100% - 300px);
-  height: 100vh;
+  height: calc(100vh - 80px);
   padding: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +115,7 @@ main {
   align-items: flex-start;
   align-content: flex-start;
   justify-content: center;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .counter {

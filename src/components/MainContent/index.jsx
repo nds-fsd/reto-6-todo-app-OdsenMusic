@@ -17,7 +17,7 @@ function MainContent({
 }) {
   return (
     <main>
-      <h1 className="viewportGroupName">{taskFilter}</h1>
+      {<h1 className="viewportGroupName">{taskFilter}</h1>}
       <AnimatePresence>
         {taskList
           .filter((task) => taskFilterLogic(task, taskFilter))

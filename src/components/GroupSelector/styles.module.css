@@ -37,3 +37,7 @@
   scale: 1.05;
   background-color: rgb(233, 254, 202);
 }
+
+.groupSelectorButton:active {
+  scale: 0.95;
+}

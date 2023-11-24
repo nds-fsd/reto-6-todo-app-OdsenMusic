@@ -32,10 +32,6 @@ export default function NavBar({
     }
   };
 
-  const taskCounter = () => {
-    return taskList.filter((e) => e.done).length;
-  };
-
   return (
     <nav className={style}>
       <Logo />
@@ -45,12 +41,14 @@ export default function NavBar({
           text="Tareas"
           icon={taskIcon}
           count={taskList.filter((e) => !e.done).length}
+          alt="Todas las tareas"
         />
         <NavBarMenuCard
           filterTasks={filterTasks}
           text="Tareas finalizadas"
           icon={checkIcon}
           count={taskList.filter((e) => e.done).length}
+          alt="Todas las tareas finalizadas"
         />
 
         <NavBarMenuCard
@@ -58,6 +56,7 @@ export default function NavBar({
           text="Papelera"
           icon={trashIcon}
           count={taskList.filter((e) => e.deleted).length}
+          alt="Tareas en papelera"
         />
       </ul>
 
@@ -79,7 +78,11 @@ export default function NavBar({
         </AnimatePresence>
       </div>
       <button onClick={addNewGroup} className={style.addGroup}>
-        <img className={style.addGroup} src={plusIcon} alt="" />
+        <img
+          className={style.addGroup}
+          src={plusIcon}
+          alt="Icono de añadir grupo"
+        />
         Crear grupo
       </button>
     </nav>

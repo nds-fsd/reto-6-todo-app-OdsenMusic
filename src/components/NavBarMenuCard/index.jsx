@@ -4,8 +4,7 @@ export default function NavBarMenuCard({
   icon,
   text,
   filterTasks,
-
-  filterMethod,
+  alt,
   count,
 }) {
   function clickHandler(text) {
@@ -28,7 +27,7 @@ export default function NavBarMenuCard({
         clickHandler(text);
       }}
     >
-      <img src={icon} />
+      <img src={icon} alt={alt} />
       {text} <p className="counter">{count}</p>
     </section>
   );

@@ -31,7 +31,7 @@ export default function NavBar({
           filterTasks={filterTasks}
           text="Tareas finalizadas"
           icon={checkIcon}
-          count={taskList.filter((e) => e.done).length}
+          count={taskList.filter((e) => e.done && !e.deleted).length}
           alt="Todas las tareas finalizadas"
         />
 

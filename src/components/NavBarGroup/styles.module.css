@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
   width: 43%;
   height: 25px;
   padding: 20px 0;
@@ -11,7 +10,7 @@
   background-color: rgb(255, 255, 255);
   border: 2px solid transparent;
   box-shadow: var(--group-boxshadow);
-  transition: background-color 0.3s;
+  transition: border 0.3s;
 }
 
 .counter {
@@ -44,22 +43,27 @@ textarea {
 
 .deleteGroupButton {
   position: absolute;
-  top: 1%;
-  left: 1%;
+  top: 0%;
+  left: -3%;
   opacity: 0;
-  transition: opacity 0.3s 0.2s;
+  transition: 0.3s;
+  width: 12px;
 }
 
 .deleteGroupButton:hover {
   scale: 1.15;
 }
 
+.deleteGroupButton:active {
+  scale: 0.95;
+}
+
 button.personalizeColor {
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: -1%;
+  right: -3%;
   opacity: 0;
-  transition: opacity 0.3s 0.2s;
+  transition: 0.3s;
 }
 
 img.personalizeColor {
@@ -68,6 +72,10 @@ img.personalizeColor {
 
 .personalizeColor:hover {
   scale: 1.15;
+}
+
+.personalizeColor:active {
+  scale: 0.95;
 }
 
 img.deleteGroupImg {

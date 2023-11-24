@@ -16,6 +16,15 @@
 
 .icon {
   height: 14px;
+  transition: 0.2s;
+}
+
+.icon:hover {
+  filter: contrast(0.1) brightness(4);
+}
+
+.icon:active {
+  scale: 0.9;
 }
 
 button.taskBarMenuButton {

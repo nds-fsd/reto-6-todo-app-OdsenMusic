@@ -15,7 +15,7 @@
   padding: 5px;
   z-index: 9999;
   top: 110%;
-  left: 25%;
+  left: 35%;
 }
 
 .groupSelectorButton {
@@ -25,6 +25,7 @@
   font-size: 0.7rem;
   font-weight: 600;
   transition: 0.2s;
+  color: rgb(68, 68, 68);
 }
 
 .assignedGroup {

@@ -14,7 +14,7 @@ article {
 
 article.completed {
   text-decoration: line-through 2px;
-  filter: brightness(0.9);
+  filter: brightness(0.95);
 }
 
 article.white {

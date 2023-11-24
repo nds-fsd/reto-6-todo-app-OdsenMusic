@@ -39,9 +39,9 @@ span.taskCheckbox:after {
 }
 
 label input.taskCheckbox:checked ~ span.taskCheckbox {
-  background-color: rgba(166, 199, 113, 0.657);
-  border: 1px solid rgb(164, 185, 134);
-  box-shadow: 0 0 10px 2px rgb(220, 239, 191);
+  background-color: var(--checkboxBackgroundColor);
+  border: var(--checkboxBorder);
+  box-shadow: var(--checkBoxShadow);
   transition: 0.3s;
 }
 

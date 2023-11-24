@@ -27,27 +27,33 @@
   --article-boxshadow: 4px 4px 30px 0px rgba(0, 0, 0, 0.167);
   --group-boxshadow: 0 0 16px 0 rgba(0, 0, 0, 0.107);
   --viewportGroupNameColor: rgba(0, 0, 0, 0.137);
+  --checkboxBackgroundColor: rgba(166, 199, 113, 0.657);
+  --checkBoxBorder: 1px solid rgb(164, 185, 134);
+  --checkBoxShadow: 0 0 10px 2px rgb(220, 239, 191);
 }
 
 .darkMode {
   --counter-color: #f5f5f5;
-  --primary-color: rgb(84, 84, 84);
+  --primary-color: rgb(67, 67, 67);
   --secondary-color: #f5f5f5;
-  --white-card-color: rgba(150, 149, 149, 0.401);
-  --icon-color: contrast(0) brightness(1.4);
-  --white: rgba(130, 130, 130, 0.785);
-  --green: rgba(134, 155, 108, 0.785);
-  --yellow: rgba(158, 152, 125, 0.749);
-  --blue: rgba(114, 129, 150, 0.785);
-  --orange: rgba(148, 137, 123, 0.785);
-  --purple: rgba(165, 156, 178, 0.785);
+  --white-card-color: rgba(201, 201, 201, 0.401);
+  --icon-color: contrast(0) brightness(1.7);
+  --white: rgba(198, 198, 198, 0.785);
+  --green: rgba(158, 198, 109, 0.785);
+  --yellow: rgba(209, 192, 115, 0.749);
+  --blue: rgba(101, 140, 196, 0.785);
+  --orange: rgba(208, 163, 103, 0.785);
+  --purple: rgba(162, 129, 212, 0.785);
   --background-red: rgb(80, 59, 59);
-  --background-green: #47533b;
-  --background-yellow: rgb(83, 79, 56);
-  --background-blue: rgb(58, 71, 89);
-  --background-orange: #5e503f;
-  --background-purple: #40344b;
+  --background-green: #71885c;
+  --background-yellow: rgb(118, 109, 66);
+  --background-blue: rgb(84, 106, 134);
+  --background-orange: #826949;
+  --background-purple: #5c4570;
   --viewportGroupNameColor: rgba(231, 231, 231, 0.168);
+  --checkboxBackgroundColor: rgba(189, 223, 134, 0.657);
+  --checkBoxBorder: 1px solid rgb(212, 239, 175);
+  --checkBoxShadow: 0 0 10px 2px rgb(121, 145, 82);
 }
 
 * {
@@ -120,10 +126,11 @@ main {
 
 .counter {
   font-weight: 200;
-  align-self: flex-end;
-  position: absolute;
-  left: 250px;
+
+  position: relative;
+
   text-align: center;
+  margin-left: auto;
 }
 
 ul {
@@ -154,11 +161,14 @@ button.personalize {
 }
 
 button.add-task {
-  bottom: 20px;
+  bottom: 15px;
+  right: 30px;
 }
 
 button.toggleDarkMode {
-  top: 20px;
+  top: 15px;
+  right: 30px;
+  rotate: -40deg;
 }
 
 img.add-task {

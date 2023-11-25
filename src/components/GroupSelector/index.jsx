@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../GroupSelector/styles.module.css";
 import { motion } from "framer-motion";
 
@@ -8,6 +7,7 @@ export default function GroupSelector({
   changeTaskAttribute,
   id,
   forceReload,
+  groupSelectorRef,
 }) {
   const getButtonStyle = (groupName) => {
     return group === groupName ? styles.assignedGroup : "";
@@ -15,6 +15,7 @@ export default function GroupSelector({
 
   return (
     <motion.div
+      ref={groupSelectorRef}
       initial={{ opacity: 0, scale: 0.5, translateY: -50 }}
       animate={{ opacity: 1, scale: 1, translateY: 0 }}
       transition={{ duration: 0.3, ease: [0.24, 0.46, 0.42, 1] }}

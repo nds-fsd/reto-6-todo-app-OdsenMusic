@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Checkbox from "../Checkbox";
 import ColorSelector from "../ColorSelector";
 import TaskMenu from "../TaskMenu";
@@ -20,25 +20,34 @@ export default function Task({
   const [colorSelectorVisibility, setColorSelectorVisibility] = useState(false);
   const [groupSelectorVisibility, setGrupSelectorVisibility] = useState(false);
 
+  let groupSelectorRef = useRef();
+  let colorSelectorRef = useRef();
+
   useEffect(() => {
-    if (groupSelectorVisibility) {
-      const timer = setTimeout(() => {
+    let handler = (e) => {
+      if (!groupSelectorRef.current.contains(e.target)) {
         setGrupSelectorVisibility(false);
-      }, 5000);
+      }
+    };
+    document.addEventListener("mousedown", handler);
 
-      return () => clearTimeout(timer);
-    }
-  }, [groupSelectorVisibility]);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
 
   useEffect(() => {
-    if (colorSelectorVisibility) {
-      const timer = setTimeout(() => {
+    let handler = (e) => {
+      if (!colorSelectorRef.current.contains(e.target)) {
         setColorSelectorVisibility(false);
-      }, 5000);
+      }
+    };
+    document.addEventListener("mousedown", handler);
 
-      return () => clearTimeout(timer);
-    }
-  }, [colorSelectorVisibility]);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
 
   const handleTextChange = (event) =>
     changeTaskAttribute(id, { text: event.target.value }, forceReload);
@@ -73,6 +82,7 @@ export default function Task({
             id={id}
             forceReload={forceReload}
             changeTaskAttribute={changeTaskAttribute}
+            colorSelectorRef={colorSelectorRef}
           />
         )}
         {groupSelectorVisibility && (
@@ -83,6 +93,7 @@ export default function Task({
             groupList={groupList}
             forceReload={forceReload}
             changeTaskAttribute={changeTaskAttribute}
+            groupSelectorRef={groupSelectorRef}
           />
         )}
       </AnimatePresence>

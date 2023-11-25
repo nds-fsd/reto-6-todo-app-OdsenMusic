@@ -38,9 +38,8 @@ const App = () => {
   }, [taskFilter, groupList]);
 
   const forceReload = useCallback(() => {
-    setReload(!reload);
-    console.log("reload");
-  }, [taskList]);
+    setReload((prev) => !prev);
+  }, []);
   const filterTasks = useCallback((filter) => setTaskFilter(filter), []);
   const handleTheme = () =>
     theme === "darkMode" ? setTheme("") : setTheme("darkMode");

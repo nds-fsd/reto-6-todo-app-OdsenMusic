@@ -62,10 +62,10 @@ const Task = memo(
 
     return (
       <motion.div
-        initial={{ delay: 1, opacity: 0, scale: 0.5, translateX: 100 }}
+        initial={{ opacity: 0, scale: 0.5, translateX: 100 }}
         animate={{ opacity: 1, scale: 1, translateX: 0 }}
         transition={{
-          delay: 0.14,
+          delay: 0.1,
           duration: 0.3,
           ease: [0.24, 0.46, 0.42, 1],
         }}

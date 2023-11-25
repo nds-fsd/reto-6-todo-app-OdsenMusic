@@ -43,10 +43,10 @@ const App = () => {
   const filterTasks = useCallback((filter) => setTaskFilter(filter), []);
   const handleTheme = () =>
     theme === "darkMode" ? setTheme("") : setTheme("darkMode");
-  const deleteAllTasks = useCallback(() => {
+  const deleteAllTasks = () => {
     const tasksToDelete = taskList.filter((task) => task.deleted);
     tasksToDelete.forEach((task) => deleteTask(task.id, forceReload));
-  }, []);
+  };
 
   return (
     <div className={`viewport ${background} ${theme}`}>

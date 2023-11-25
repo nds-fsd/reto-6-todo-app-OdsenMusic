@@ -54,6 +54,7 @@ const App = () => {
         taskList={taskList}
         setGroupList={setGroupList}
         forceReload={forceReload}
+        setTaskFilter={setTaskFilter}
       />
       <MainContent
         taskFilter={taskFilter}

@@ -5,7 +5,6 @@ import recoverIcon from "../../assets/icons/reply-svgrepo-com.svg";
 import brushIcon from "../../assets/icons/brush-svgrepo-com.svg";
 import groupIcon from "../../assets/icons/tag-2-svgrepo-com.svg";
 import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
-import detailIcon from "../../assets/icons/align-bottom-svgrepo-com (1).svg";
 
 function TaskMenu({
   key,

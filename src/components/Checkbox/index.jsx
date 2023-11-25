@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
-import doneSFX from "../../assets/sounds/doneSFX.wav";
+import doneSFX from "../../assets/sounds/doneSFX.mp3";
+import { changeTaskAttribute } from "../../utils/apifunctions";
 
 export default function Checkbox({ id, done, forceReload }) {
   const audioSfx = new Audio(doneSFX);
@@ -8,21 +9,8 @@ export default function Checkbox({ id, done, forceReload }) {
 
   const handleCheckbox = async () => {
     const payload = { done: !done };
-
-    try {
-      const response = await fetch(`http://localhost:3000/todo/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        forceReload();
-        if (!done) audioSfx.play();
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    changeTaskAttribute(id, payload, forceReload);
+    if (!done) audioSfx.play();
   };
 
   return (

@@ -15,6 +15,7 @@ export default function NavBarGroup({
   color,
   forceReload,
   filterTasks,
+  setTaskFilter,
   count,
 }) {
   return (
@@ -29,7 +30,9 @@ export default function NavBarGroup({
     >
       <button
         className={style.deleteGroupButton}
-        onClick={() => deleteGroup(id, forceReload)}
+        onClick={() => {
+          deleteGroup(id, forceReload, setTaskFilter);
+        }}
       >
         <img className={style.deleteGroupImg} src={crossIcon} alt="" />
       </button>
@@ -42,8 +45,8 @@ export default function NavBarGroup({
       <textarea
         className={style.groupName}
         defaultValue={name}
-        onBlur={() => changeGroupName(id, event, forceReload)}
-        placeholder="Nuevo grupo"
+        onBlur={() => changeGroupName(id, event, forceReload, setTaskFilter)}
+        placeholder="Grupo"
         maxLength="13"
       >
         {}

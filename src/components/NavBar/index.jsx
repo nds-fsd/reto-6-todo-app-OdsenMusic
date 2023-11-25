@@ -15,6 +15,7 @@ export default function NavBar({
   groupList,
   setGroupList,
   taskList,
+  setTaskFilter,
 }) {
   return (
     <nav className={style}>
@@ -55,9 +56,10 @@ export default function NavBar({
                 forceReload={forceReload}
                 color={e.color}
                 filterTasks={filterTasks}
+                setTaskFilter={setTaskFilter}
                 count={
                   taskList.filter((t) => {
-                    return t.group === e.name && !e.deleted;
+                    return t.group === e.name && !t.deleted;
                   }).length
                 }
               />

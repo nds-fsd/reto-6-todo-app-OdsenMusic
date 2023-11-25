@@ -1,3 +1,7 @@
+const API_URL_Base = "http://localhost:3000/";
+const API_URL_Tasks = "http://localhost:3000/todo/";
+const API_URL_Groups = "http://localhost:3000/groups/";
+
 export const newTask = async (forceReload, color, group) => {
   try {
     const response = await fetch("http://localhost:3000/todo", {
@@ -15,7 +19,7 @@ export const newTask = async (forceReload, color, group) => {
 
 export const getData = async (route, stateSetter) => {
   try {
-    const response = await fetch(`http://localhost:3000/${route}`);
+    const response = await fetch(API_URL_Base + route);
     if (response.ok) {
       const json = await response.json();
       stateSetter(json);
@@ -27,7 +31,7 @@ export const getData = async (route, stateSetter) => {
 
 export const deleteTask = async (id, forceReload) => {
   try {
-    const response = await fetch(`http://localhost:3000/todo/${id}`, {
+    const response = await fetch(API_URL_Tasks + id, {
       method: "DELETE",
     });
     if (response.ok) {
@@ -40,7 +44,7 @@ export const deleteTask = async (id, forceReload) => {
 
 export const addNewGroup = async (setGroupList) => {
   try {
-    const response = await fetch("http://localhost:3000/groups", {
+    const response = await fetch(API_URL_Groups, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
@@ -52,20 +56,15 @@ export const addNewGroup = async (setGroupList) => {
       });
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
 export const updateGroup = async (id, payload, forceReload) => {
-  const url = `http://localhost:3000/groups/${id}`;
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
   try {
-    const response = await fetch(url, {
+    const response = await fetch(API_URL_Groups + id, {
       method: "PATCH",
-      headers,
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 
@@ -73,15 +72,16 @@ export const updateGroup = async (id, payload, forceReload) => {
       forceReload();
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
-export const changeGroupName = (id, event, forceReload) => {
+export const changeGroupName = (id, event, forceReload, setTaskFilter) => {
   if (event.target.value === "") {
     return;
   } else {
     updateGroup(id, { name: event.target.value }, forceReload);
+    setTaskFilter(event.target.value);
   }
 };
 
@@ -91,30 +91,23 @@ export const changeGroupColor = (id, currentColor, forceReload) => {
   updateGroup(id, { color: nextColor }, forceReload);
 };
 
-export const deleteGroup = async (id, forceReload) => {
-  const url = `http://localhost:3000/groups/${id}`;
-
+export const deleteGroup = async (id, forceReload, setTaskFilter) => {
   try {
-    const response = await fetch(url, { method: "DELETE" });
+    const response = await fetch(API_URL_Groups + id, { method: "DELETE" });
     if (response.ok) {
       forceReload();
+      setTaskFilter("");
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
 export const changeTaskAttribute = async (id, payload, forceReload) => {
-  const url = `http://localhost:3000/todo/${id}`;
-
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
   try {
-    const response = await fetch(url, {
+    const response = await fetch(API_URL_Tasks + id, {
       method: "PATCH",
-      headers,
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 
@@ -122,6 +115,6 @@ export const changeTaskAttribute = async (id, payload, forceReload) => {
       forceReload();
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./styles.module.css";
 import doneSFX from "../../assets/sounds/doneSFX.mp3";
 import { changeTaskAttribute } from "../../utils/apifunctions";
 
-export default function Checkbox({ id, done, forceReload }) {
+const Checkbox = memo(({ id, done, forceReload }) => {
   const audioSfx = new Audio(doneSFX);
   audioSfx.volume = 0.1;
 
@@ -24,4 +24,6 @@ export default function Checkbox({ id, done, forceReload }) {
       <span className={styles.taskCheckbox}></span>
     </label>
   );
-}
+});
+
+export default Checkbox;

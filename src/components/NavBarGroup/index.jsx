@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import style from "../NavBarGroup/styles.module.css";
 import colorIcon from "../../assets/icons/color-swatch-svgrepo-com.svg";
@@ -9,7 +9,7 @@ import {
   deleteGroup,
 } from "../../utils/apifunctions";
 
-export default function NavBarGroup({
+const NavBarGroup = ({
   id,
   name,
   color,
@@ -17,7 +17,7 @@ export default function NavBarGroup({
   filterTasks,
   setTaskFilter,
   count,
-}) {
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, translateY: 50 }}
@@ -54,4 +54,6 @@ export default function NavBarGroup({
       <p className={style.counter}>{count}</p>
     </motion.div>
   );
-}
+};
+
+export default NavBarGroup;

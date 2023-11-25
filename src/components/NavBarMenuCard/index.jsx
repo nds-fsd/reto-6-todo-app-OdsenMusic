@@ -1,12 +1,5 @@
-import React from "react";
-
-export default function NavBarMenuCard({
-  icon,
-  text,
-  filterTasks,
-  alt,
-  count,
-}) {
+import React, { memo } from "react";
+const NavBarMenuCard = memo(({ icon, text, filterTasks, alt, count }) => {
   function clickHandler(text) {
     switch (text) {
       case "Tareas":
@@ -31,4 +24,6 @@ export default function NavBarMenuCard({
       {text} <p className="counter">{count}</p>
     </section>
   );
-}
+});
+
+export default NavBarMenuCard;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import NavBar from "./components/NavBar";
 import MainContent from "./components/MainContent";
 import { getData, newTask, deleteTask } from "./utils/apifunctions.js";
@@ -37,14 +37,17 @@ const App = () => {
     }
   }, [taskFilter, groupList]);
 
-  const forceReload = () => setReload(!reload);
-  const filterTasks = (filter) => setTaskFilter(filter);
+  const forceReload = useCallback(() => {
+    setReload(!reload);
+    console.log("reload");
+  }, [taskList]);
+  const filterTasks = useCallback((filter) => setTaskFilter(filter), []);
   const handleTheme = () =>
     theme === "darkMode" ? setTheme("") : setTheme("darkMode");
-  const deleteAllTasks = () => {
+  const deleteAllTasks = useCallback(() => {
     const tasksToDelete = taskList.filter((task) => task.deleted);
     tasksToDelete.forEach((task) => deleteTask(task.id, forceReload));
-  };
+  }, []);
 
   return (
     <div className={`viewport ${background} ${theme}`}>

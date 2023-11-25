@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Task from "../Task";
 import { AnimatePresence, motion } from "framer-motion";
 import plusIcon from "../../assets/icons/plus-circle-svgrepo-com.svg";
@@ -6,48 +6,50 @@ import moonIcon from "../../assets/icons/moon-svgrepo-com.svg";
 import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
 import { newTask } from "../../utils/apifunctions";
 
-function MainContent({
-  taskFilter,
-  taskList,
-  forceReload,
-  groupList,
-  deleteAllTasks,
-  handleTheme,
-}) {
-  return (
-    <main>
-      {<h1 className="viewportGroupName">{taskFilter}</h1>}
-      <AnimatePresence>
-        {taskList
-          .filter((task) => taskFilterLogic(task, taskFilter))
-          .map((task) => (
-            <Task
-              key={task.id}
-              {...task}
-              forceReload={forceReload}
-              groupList={groupList}
-            />
-          ))}
+const MainContent = memo(
+  ({
+    taskFilter,
+    taskList,
+    forceReload,
+    groupList,
+    deleteAllTasks,
+    handleTheme,
+  }) => {
+    return (
+      <main>
+        {<h1 className="viewportGroupName">{taskFilter}</h1>}
+        <AnimatePresence initial={false}>
+          {taskList
+            .filter((task) => taskFilterLogic(task, taskFilter))
+            .map((task) => (
+              <Task
+                key={task.id}
+                {...task}
+                forceReload={forceReload}
+                groupList={groupList}
+              />
+            ))}
 
-        {renderDeleteAllButton(taskFilter, taskList, deleteAllTasks)}
-        {renderAddTaskButton(
-          taskFilter,
-          handleCreateTask,
-          groupList,
-          forceReload
-        )}
-      </AnimatePresence>
+          {renderDeleteAllButton(taskFilter, taskList, deleteAllTasks)}
+          {renderAddTaskButton(
+            taskFilter,
+            handleCreateTask,
+            groupList,
+            forceReload
+          )}
+        </AnimatePresence>
 
-      <button className="toggleDarkMode" onClick={handleTheme}>
-        <img
-          className="toggleDarkMode"
-          src={moonIcon}
-          alt="Icono de crear tarea"
-        />
-      </button>
-    </main>
-  );
-}
+        <button className="toggleDarkMode" onClick={handleTheme}>
+          <img
+            className="toggleDarkMode"
+            src={moonIcon}
+            alt="Icono de crear tarea"
+          />
+        </button>
+      </main>
+    );
+  }
+);
 
 function taskFilterLogic(task, taskFilter) {
   if (taskFilter === "Papelera") return task.deleted;

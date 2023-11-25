@@ -18,7 +18,7 @@ const MainContent = memo(
     return (
       <main>
         {<h1 className="viewportGroupName">{taskFilter}</h1>}
-        <AnimatePresence initial={false}>
+        <AnimatePresence mode="popLayout" initial={false}>
           {taskList
             .filter((task) => taskFilterLogic(task, taskFilter))
             .map((task) => (

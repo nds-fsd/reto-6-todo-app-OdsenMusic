@@ -62,9 +62,13 @@ const Task = memo(
 
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.5, translateX: 100 }}
+        initial={{ delay: 1, opacity: 0, scale: 0.5, translateX: 100 }}
         animate={{ opacity: 1, scale: 1, translateX: 0 }}
-        transition={{ duration: 0.3, ease: [0.24, 0.46, 0.42, 1] }}
+        transition={{
+          delay: 0.14,
+          duration: 0.3,
+          ease: [0.24, 0.46, 0.42, 1],
+        }}
         exit={{ opacity: 0, scale: 0.5, translateX: 100 }}
         layout
         className={style.taskWrapper}

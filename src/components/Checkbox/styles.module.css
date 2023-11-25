@@ -38,13 +38,13 @@ span.taskCheckbox:after {
   transition: 0.3s;
 }
 
-label input.taskCheckbox:checked ~ span.taskCheckbox {
+label.taskCheckbox input.taskCheckbox:checked ~ span.taskCheckbox {
   background-color: var(--checkboxBackgroundColor);
   border: var(--checkboxBorder);
   box-shadow: var(--checkBoxShadow);
   transition: 0.3s;
 }
 
-label input.taskCheckbox:checked ~ span.taskCheckbox:after {
+label.taskCheckbox input.taskCheckbox:checked ~ span.taskCheckbox:after {
   opacity: 1;
 }

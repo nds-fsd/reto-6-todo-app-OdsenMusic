@@ -55,7 +55,11 @@ export default function NavBar({
                 forceReload={forceReload}
                 color={e.color}
                 filterTasks={filterTasks}
-                count={taskList.filter((t) => t.group === e.name).length}
+                count={
+                  taskList.filter((t) => {
+                    return t.group === e.name && !e.deleted;
+                  }).length
+                }
               />
             );
           })}

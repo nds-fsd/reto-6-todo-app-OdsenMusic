@@ -7,13 +7,11 @@ import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
 import { newTask } from "../../utils/apifunctions";
 
 function MainContent({
-  toggleEditMode,
   taskFilter,
   taskList,
   forceReload,
   groupList,
   deleteAllTasks,
-  newTask,
   handleTheme,
 }) {
   return (
@@ -27,7 +25,6 @@ function MainContent({
               key={task.id}
               {...task}
               forceReload={forceReload}
-              toggleEditMode={toggleEditMode}
               groupList={groupList}
             />
           ))}
@@ -62,12 +59,7 @@ function taskFilterLogic(task, taskFilter) {
   );
 }
 
-function renderDeleteAllButton(
-  taskFilter,
-  taskList,
-  deleteAllTasks,
-  handleCreateTask
-) {
+function renderDeleteAllButton(taskFilter, taskList, deleteAllTasks) {
   if (taskFilter === "Papelera" && taskList.some((task) => task.deleted)) {
     return (
       <div className="deleteAllContainer">
@@ -107,7 +99,6 @@ function renderAddTaskButton(
 }
 
 function handleCreateTask(taskFilter, groupList, forceReload) {
-  console.log("elfiltro" + taskFilter);
   if (
     taskFilter === "Papelera" ||
     taskFilter === "" ||

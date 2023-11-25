@@ -15,7 +15,6 @@ export default function Task({
   deleted,
   group,
   forceReload,
-  toggleEditMode,
   groupList,
 }) {
   const [colorSelectorVisibility, setColorSelectorVisibility] = useState(false);
@@ -97,7 +96,6 @@ export default function Task({
         <TaskMenu
           id={id}
           forceReload={forceReload}
-          toggleEditMode={toggleEditMode}
           groupList={groupList}
           group={group}
           deleted={deleted}

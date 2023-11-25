@@ -4,7 +4,7 @@ import doneSFX from "../../assets/sounds/doneSFX.wav";
 
 export default function Checkbox({ id, done, forceReload }) {
   const audioSfx = new Audio(doneSFX);
-  audioSfx.volume = 0.3;
+  audioSfx.volume = 0.1;
 
   const handleCheckbox = async () => {
     const payload = { done: !done };

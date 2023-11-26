@@ -17,32 +17,6 @@ const Task = memo(
     let groupSelectorRef = useRef();
     let colorSelectorRef = useRef();
 
-    useEffect(() => {
-      let handler = (e) => {
-        if (!groupSelectorRef.current.contains(e.target)) {
-          setGrupSelectorVisibility(false);
-        }
-      };
-      document.addEventListener("mousedown", handler);
-
-      return () => {
-        document.removeEventListener("mousedown", handler);
-      };
-    });
-
-    useEffect(() => {
-      let handler = (e) => {
-        if (!colorSelectorRef.current.contains(e.target)) {
-          setColorSelectorVisibility(false);
-        }
-      };
-      document.addEventListener("mousedown", handler);
-
-      return () => {
-        document.removeEventListener("mousedown", handler);
-      };
-    });
-
     const handleTextChange = (event) =>
       changeTaskAttribute(id, { text: event.target.value }, forceReload);
     const handleColorSelectorVisibility = () => {
@@ -80,7 +54,7 @@ const Task = memo(
               id={id}
               forceReload={forceReload}
               changeTaskAttribute={changeTaskAttribute}
-              colorSelectorRef={colorSelectorRef}
+              ref={colorSelectorRef}
             />
           )}
           {groupSelectorVisibility && (
@@ -91,7 +65,7 @@ const Task = memo(
               groupList={groupList}
               forceReload={forceReload}
               changeTaskAttribute={changeTaskAttribute}
-              groupSelectorRef={groupSelectorRef}
+              ref={groupSelectorRef}
             />
           )}
         </AnimatePresence>

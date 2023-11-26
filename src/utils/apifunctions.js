@@ -4,7 +4,7 @@ const API_URL_Groups = "http://localhost:3000/groups/";
 
 export const newTask = async (forceReload, color, group) => {
   try {
-    const response = await fetch("http://localhost:3000/todo", {
+    const response = await fetch(API_URL_Tasks, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ color: color, group: group }),

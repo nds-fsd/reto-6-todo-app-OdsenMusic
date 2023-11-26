@@ -17,6 +17,38 @@ const Task = memo(
     let groupSelectorRef = useRef();
     let colorSelectorRef = useRef();
 
+    useEffect(() => {
+      let handler = (e) => {
+        if (
+          groupSelectorRef.current &&
+          !groupSelectorRef.current.contains(e.target)
+        ) {
+          setGrupSelectorVisibility(false);
+        }
+      };
+      document.addEventListener("mousedown", handler);
+
+      return () => {
+        document.removeEventListener("mousedown", handler);
+      };
+    });
+
+    useEffect(() => {
+      let handler = (e) => {
+        if (
+          colorSelectorRef.current &&
+          !colorSelectorRef.current.contains(e.target)
+        ) {
+          setColorSelectorVisibility(false);
+        }
+      };
+      document.addEventListener("mousedown", handler);
+
+      return () => {
+        document.removeEventListener("mousedown", handler);
+      };
+    });
+
     const handleTextChange = (event) =>
       changeTaskAttribute(id, { text: event.target.value }, forceReload);
     const handleColorSelectorVisibility = () => {
@@ -74,7 +106,7 @@ const Task = memo(
             defaultValue={text}
             onBlur={handleTextChange}
             className={style.taskText}
-            maxLength={47}
+            maxLength={40}
           />
           <TaskMenu
             id={id}

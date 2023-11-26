@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 const NavBarMenuCard = memo(({ icon, text, filterTasks, alt, count }) => {
+  //Función que permite cambiar el filtro al hacer click en los menús
   function clickHandler(text) {
     switch (text) {
       case "Tareas":

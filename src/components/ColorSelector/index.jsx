@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 
 const ColorSelector = memo(
+  // memo para mejorar el rendimiento
   forwardRef(({ id, changeTaskAttribute, forceReload }, ref) => {
     const createColorButton = (color) => (
       <button

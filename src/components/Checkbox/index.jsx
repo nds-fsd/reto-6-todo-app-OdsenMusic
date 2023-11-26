@@ -4,7 +4,7 @@ import doneSFX from "../../assets/sounds/doneSFX.mp3";
 import { changeTaskAttribute } from "../../utils/apifunctions";
 
 const Checkbox = memo(({ id, done, forceReload }) => {
-  const audioSfx = new Audio(doneSFX);
+  const audioSfx = new Audio(doneSFX); //Añade efecto de sonido
   audioSfx.volume = 0.1;
 
   const handleCheckbox = async () => {

@@ -16,6 +16,7 @@ const TaskMenu = memo(
     changeTaskAttribute,
     deleted,
   }) => {
+    // Toggle  para enviar o recuperar tareas en la papelera
     const toggleDeleted = async (deleted) => {
       changeTaskAttribute(id, { deleted: !deleted }, forceReload);
     };
@@ -58,7 +59,11 @@ const TaskMenu = memo(
       return (
         <div className={style.taskMenuContainer}>
           <button onClick={toggleDeleted} className="taskBarMenuButton">
-            <img className={style.icon} src={recoverIcon} alt="" />
+            <img
+              className={style.icon}
+              src={recoverIcon}
+              alt="Icono de recuperación"
+            />
           </button>
           <button
             className="taskBarMenuButton"
@@ -68,7 +73,7 @@ const TaskMenu = memo(
             <img
               className={style.icon}
               src="src/assets/icons/trash-svgrepo-com.svg"
-              alt=""
+              alt="Icono de papelera"
             />
           </button>
         </div>

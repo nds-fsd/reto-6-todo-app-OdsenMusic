@@ -6,6 +6,7 @@ const GroupSelector = memo(
   forwardRef(
     ({ groupList, group, changeTaskAttribute, id, forceReload }, ref) => {
       const getButtonStyle = (groupName) => {
+        //el grupo seleccionado se vuelve verde
         return group === groupName ? styles.assignedGroup : "";
       };
 

@@ -2,6 +2,8 @@ const API_URL_Base = "http://localhost:3000/";
 const API_URL_Tasks = "http://localhost:3000/todo/";
 const API_URL_Groups = "http://localhost:3000/groups/";
 
+//Funciones de fetching a la API.
+
 export const newTask = async (forceReload, color, group) => {
   try {
     const response = await fetch(API_URL_Tasks, {
@@ -76,21 +78,6 @@ export const updateGroup = async (id, payload, forceReload) => {
   }
 };
 
-export const changeGroupName = (id, event, forceReload, setTaskFilter) => {
-  if (event.target.value === "") {
-    return;
-  } else {
-    updateGroup(id, { name: event.target.value }, forceReload);
-    setTaskFilter(event.target.value);
-  }
-};
-
-export const changeGroupColor = (id, currentColor, forceReload) => {
-  const colors = ["white", "green", "yellow", "blue", "orange", "purple"];
-  const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
-  updateGroup(id, { color: nextColor }, forceReload);
-};
-
 export const deleteGroup = async (id, forceReload, setTaskFilter) => {
   try {
     const response = await fetch(API_URL_Groups + id, { method: "DELETE" });
@@ -117,4 +104,21 @@ export const changeTaskAttribute = async (id, payload, forceReload) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+//Funciones relacionadas.
+
+export const changeGroupName = (id, event, forceReload, setTaskFilter) => {
+  if (event.target.value === "") {
+    return;
+  } else {
+    updateGroup(id, { name: event.target.value }, forceReload);
+    setTaskFilter(event.target.value);
+  }
+};
+
+export const changeGroupColor = (id, currentColor, forceReload) => {
+  const colors = ["white", "green", "yellow", "blue", "orange", "purple"];
+  const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+  updateGroup(id, { color: nextColor }, forceReload);
 };

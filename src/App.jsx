@@ -12,10 +12,14 @@ const App = () => {
   const [reload, setReload] = useState(false);
   const [theme, setTheme] = useState("");
 
+  //useEffect para recoger las tareas y grupos
+
   useEffect(() => {
     getData("todo", setTaskList);
     getData("groups", setGroupList);
   }, [reload]);
+
+  //useEffect para actualizar el color del fondo al cambiar de menú o grupo
 
   useEffect(() => {
     switch (taskFilter) {

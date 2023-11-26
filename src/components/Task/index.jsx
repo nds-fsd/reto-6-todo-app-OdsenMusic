@@ -14,6 +14,8 @@ const Task = memo(
     const [groupSelectorVisibility, setGrupSelectorVisibility] =
       useState(false);
 
+    //useEffect y refs para que los popup menus se cierren al hacer click fuera de sus respectivos divs.
+
     let groupSelectorRef = useRef();
     let colorSelectorRef = useRef();
 

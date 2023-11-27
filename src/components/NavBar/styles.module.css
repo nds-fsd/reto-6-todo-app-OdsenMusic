@@ -66,6 +66,14 @@ section:hover {
   gap: 10px;
   width: 100%;
   height: calc(100% - 340px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.groups::-webkit-scrollbar {
+  display: none;
 }
 
 .addGroup {

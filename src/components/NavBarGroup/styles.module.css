@@ -39,6 +39,7 @@ textarea {
   bottom: 0;
   font-size: 0.9rem;
   font-weight: 800;
+  overflow: hidden;
 }
 
 .deleteGroupButton {

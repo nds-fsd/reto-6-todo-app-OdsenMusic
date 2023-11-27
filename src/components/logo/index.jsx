@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import logoIcon from "/icons/shop-svgrepo-com.svg";
+import logoIcon from "../../assets/icons/shop-svgrepo-com.svg";
 
 export default function Logo({}) {
   return (

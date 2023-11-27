@@ -3,10 +3,10 @@ import NavBarMenuCard from "../NavBarMenuCard";
 import Logo from "../Logo";
 import style from "../NavBar/styles.module.css";
 import { AnimatePresence } from "framer-motion";
-import plusIcon from "/icons/plus-circle-svgrepo-com.svg";
-import checkIcon from "/icons/checkmark-circle-svgrepo-com (1).svg";
-import trashIcon from "/icons/trash-svgrepo-com.svg";
-import taskIcon from "/icons/clipboard-svgrepo-com (1).svg";
+import plusIcon from "../../assets/icons/plus-circle-svgrepo-com.svg";
+import checkIcon from "../../assets/icons/checkmark-circle-svgrepo-com (1).svg";
+import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
+import taskIcon from "../../assets/icons/clipboard-svgrepo-com (1).svg";
 import { addNewGroup } from "../../utils/apifunctions";
 import { memo } from "react";
 

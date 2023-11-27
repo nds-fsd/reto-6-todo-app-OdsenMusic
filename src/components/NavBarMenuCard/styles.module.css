@@ -13,8 +13,8 @@ section.menuCard {
   user-select: none;
 }
 
-section.menuCard:hover {
-  width: 100%;
+section:hover {
+  width: 89.5%;
   background-color: var(--yellow);
   border-radius: 0;
 }

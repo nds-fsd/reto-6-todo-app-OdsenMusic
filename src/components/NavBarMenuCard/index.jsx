@@ -1,4 +1,6 @@
 import React, { memo } from "react";
+import styles from "../NavBarMenuCard/styles.module.css";
+
 const NavBarMenuCard = memo(({ icon, text, filterTasks, alt, count }) => {
   //Función que permite cambiar el filtro al hacer click en los menús
   function clickHandler(text) {
@@ -17,12 +19,13 @@ const NavBarMenuCard = memo(({ icon, text, filterTasks, alt, count }) => {
 
   return (
     <section
+      className={styles.menuCard}
       onClick={() => {
         clickHandler(text);
       }}
     >
       <img src={icon} alt={alt} />
-      {text} <p className="counter">{count}</p>
+      {text} <p className={styles.counter}>{count}</p>
     </section>
   );
 });

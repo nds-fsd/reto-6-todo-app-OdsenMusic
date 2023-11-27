@@ -1,0 +1,27 @@
+section.menuCard {
+  display: flex;
+  gap: 15px;
+  width: calc(100% - 40px);
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 0 30px 30px 0;
+  background-color: var(--white-card-color);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.126);
+  opacity: 1;
+  transition: 0.3s;
+  z-index: 1;
+  user-select: none;
+}
+
+section.menuCard:hover {
+  width: 100%;
+  background-color: var(--yellow);
+  border-radius: 0;
+}
+
+.counter {
+  font-weight: 200;
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+}

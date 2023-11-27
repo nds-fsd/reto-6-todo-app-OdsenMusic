@@ -5,6 +5,7 @@ import plusIcon from "../../assets/icons/plus-circle-svgrepo-com.svg";
 import moonIcon from "../../assets/icons/moon-svgrepo-com.svg";
 import trashIcon from "../../assets/icons/trash-svgrepo-com.svg";
 import { newTask } from "../../utils/apifunctions";
+import styles from "../MainContent/styles.module.css";
 
 const MainContent = memo(
   ({
@@ -16,8 +17,8 @@ const MainContent = memo(
     handleTheme,
   }) => {
     return (
-      <main>
-        {<h1 className="viewportGroupName">{taskFilter}</h1>}
+      <main className={styles.mainContent}>
+        {<h1 className={styles.viewportGroupName}>{taskFilter}</h1>}
         <AnimatePresence>
           {taskList
             .filter((task) => taskFilterLogic(task, taskFilter))
@@ -39,9 +40,9 @@ const MainContent = memo(
           )}
         </AnimatePresence>
 
-        <button className="toggleDarkMode" onClick={handleTheme}>
+        <button className={styles.toggleDarkMode} onClick={handleTheme}>
           <img
-            className="toggleDarkMode"
+            className={styles.toggleDarkMode}
             src={moonIcon}
             alt="Icono de crear tarea"
           />
@@ -64,15 +65,22 @@ function taskFilterLogic(task, taskFilter) {
 function renderDeleteAllButton(taskFilter, taskList, deleteAllTasks) {
   if (taskFilter === "Papelera" && taskList.some((task) => task.deleted)) {
     return (
-      <div className="deleteAllContainer">
+      <div className={styles.deleteAllContainer}>
         <motion.button
+          initial={{ opacity: 0, scale: 0.5, translateX: 100 }}
+          animate={{ opacity: 1, scale: 1, translateX: 0 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.3,
+            ease: [0.24, 0.46, 0.42, 1],
+          }}
           exit={{ opacity: 0, scale: 0.5, translateX: 100 }}
           layout
           onClick={deleteAllTasks}
-          className="deleteAll"
+          className={styles.deleteAll}
         >
           <img
-            className="deleteAll"
+            className={styles.deleteAll}
             src={trashIcon}
             alt="Icono de eliminar todo"
           />
@@ -91,10 +99,14 @@ function renderAddTaskButton(
   if (taskFilter !== "Papelera" && taskFilter !== "Tareas finalizadas") {
     return (
       <button
-        className="add-task"
+        className={styles.addTask}
         onClick={() => handleCreateTask(taskFilter, groupList, forceReload)}
       >
-        <img className="add-task" src={plusIcon} alt="Icono de crear tarea" />
+        <img
+          className={styles.addTask}
+          src={plusIcon}
+          alt="Icono de crear tarea"
+        />
       </button>
     );
   }

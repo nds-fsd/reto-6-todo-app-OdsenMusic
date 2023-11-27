@@ -3,7 +3,7 @@ import Checkbox from "../Checkbox";
 import ColorSelector from "../ColorSelector";
 import TaskMenu from "../TaskMenu";
 import GroupSelector from "../GroupSelector";
-import style from "./styles.module.css";
+import styles from "./styles.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { changeTaskAttribute } from "../../utils/apifunctions";
 
@@ -63,7 +63,7 @@ const Task = memo(
     let completed = "";
 
     if (done) {
-      completed = style.completed;
+      completed = styles.completed;
     } else {
       completed = "";
     }
@@ -79,7 +79,7 @@ const Task = memo(
         }}
         exit={{ opacity: 0, scale: 0.5, translateX: 100 }}
         layout
-        className={style.taskWrapper}
+        className={styles.taskWrapper}
       >
         <AnimatePresence>
           {colorSelectorVisibility && (
@@ -103,11 +103,11 @@ const Task = memo(
             />
           )}
         </AnimatePresence>
-        <article className={`${style[color]} ${completed}`}>
+        <article className={`${styles[color]} ${completed}`}>
           <textarea
             defaultValue={text}
             onBlur={handleTextChange}
-            className={style.taskText}
+            className={styles.taskText}
             maxLength={40}
           />
           <TaskMenu

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { deleteTask } from "../../utils/apifunctions";
-import style from "./styles.module.css";
+import styles from "./styles.module.css";
 import recoverIcon from "../../assets/icons/reply-svgrepo-com.svg";
 import brushIcon from "../../assets/icons/brush-svgrepo-com.svg";
 import groupIcon from "../../assets/icons/tag-2-svgrepo-com.svg";
@@ -31,36 +31,36 @@ const TaskMenu = memo(
 
     if (!deleted) {
       return (
-        <div className={style.taskMenuContainer}>
+        <div className={styles.taskMenuContainer}>
           <button
             className="taskBarMenuButton"
             key={key}
             onClick={handleDelete}
           >
-            <img className={style.icon} src={trashIcon} alt="" />
+            <img className={styles.icon} src={trashIcon} alt="" />
           </button>
 
           <button
             onClick={handleGroupSelectorVisibility}
             className="taskBarMenuButton"
           >
-            <img className={style.icon} src={groupIcon} alt="" />
+            <img className={styles.icon} src={groupIcon} alt="" />
           </button>
 
           <button
             onClick={handleColorSelectorVisibility}
             className="taskBarMenuButton"
           >
-            <img className={style.icon} src={brushIcon} alt="" />
+            <img className={styles.icon} src={brushIcon} alt="" />
           </button>
         </div>
       );
     } else {
       return (
-        <div className={style.taskMenuContainer}>
+        <div className={styles.taskMenuContainer}>
           <button onClick={toggleDeleted} className="taskBarMenuButton">
             <img
-              className={style.icon}
+              className={styles.icon}
               src={recoverIcon}
               alt="Icono de recuperación"
             />
@@ -71,7 +71,7 @@ const TaskMenu = memo(
             onClick={handleDelete}
           >
             <img
-              className={style.icon}
+              className={styles.icon}
               src="src/assets/icons/trash-svgrepo-com.svg"
               alt="Icono de papelera"
             />

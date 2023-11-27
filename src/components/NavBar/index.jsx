@@ -1,7 +1,7 @@
 import NavBarGroup from "../NavBarGroup";
 import NavBarMenuCard from "../NavBarMenuCard";
 import Logo from "../Logo";
-import style from "../NavBar/styles.module.css";
+import styles from "../NavBar/styles.module.css";
 import { AnimatePresence } from "framer-motion";
 import plusIcon from "../../assets/icons/plus-circle-svgrepo-com.svg";
 import checkIcon from "../../assets/icons/checkmark-circle-svgrepo-com (1).svg";
@@ -20,7 +20,7 @@ const NavBar = memo(
     setTaskFilter,
   }) => {
     return (
-      <nav className={style}>
+      <nav className={styles}>
         <Logo />
         <ul>
           <NavBarMenuCard
@@ -47,7 +47,7 @@ const NavBar = memo(
           />
         </ul>
 
-        <div className={style.groups}>
+        <div className={styles.groups}>
           <AnimatePresence>
             {groupList.map((e) => {
               return (
@@ -71,10 +71,10 @@ const NavBar = memo(
         </div>
         <button
           onClick={() => addNewGroup(setGroupList)}
-          className={style.addGroup}
+          className={styles.addGroup}
         >
           <img
-            className={style.addGroup}
+            className={styles.addGroup}
             src={plusIcon}
             alt="Icono de añadir grupo"
           />

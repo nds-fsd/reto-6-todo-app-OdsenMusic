@@ -1,0 +1,82 @@
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  box-shadow: var(--article-boxshadow);
+  transition: 0.3s;
+}
+
+article.completed {
+  text-decoration: line-through 2px;
+  filter: brightness(0.95);
+}
+
+article.white {
+  background-color: var(--white);
+}
+
+article.white:hover {
+  border: 2px solid rgba(230, 230, 230, 0.785);
+}
+
+article.green {
+  background-color: var(--green);
+}
+
+article.green:hover {
+  border: 2px solid rgba(194, 232, 144, 0.785);
+}
+
+article.yellow {
+  background-color: var(--yellow);
+}
+
+article.yellow:hover {
+  border: 2px solid rgba(211, 195, 131, 0.749);
+}
+
+article.blue {
+  background-color: var(--blue);
+}
+
+article.blue:hover {
+  border: 2px solid rgba(162, 188, 227, 0.785);
+}
+
+article.orange {
+  background-color: var(--orange);
+}
+
+article.orange:hover {
+  border: 2px solid rgba(223, 184, 138, 0.785);
+}
+
+article.purple {
+  background-color: var(--purple);
+}
+
+article.purple:hover {
+  border: 2px solid rgba(187, 164, 227, 0.785);
+}
+
+textarea.taskText {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 80%;
+  padding-top: 5px;
+  font-weight: 800;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.taskWrapper {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}

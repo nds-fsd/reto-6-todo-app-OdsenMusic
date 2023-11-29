@@ -1,16 +1,101 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "quicksand", Helvetica, Arial, system-ui, Inter, Avenir,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --counter-color: rgb(155, 155, 155);
+  --primary-color: #f5f5f5;
+  --secondary-color: rgb(68, 68, 68);
+  --white-card-color: rgba(247, 247, 247, 0.805);
+  --icon-color: contrast(0) brightness(1.2);
+  --white: rgba(255, 255, 255, 0.785);
+  --green: rgba(212, 255, 156, 0.785);
+  --yellow: rgba(255, 235, 156, 0.749);
+  --blue: rgba(179, 208, 251, 0.785);
+  --orange: rgba(255, 210, 156, 0.785);
+  --purple: rgba(205, 179, 251, 0.785);
+  --background-red: rgb(250, 226, 226);
+  --background-green: #f1fee7;
+  --background-yellow: rgb(247, 243, 224);
+  --background-blue: rgb(227, 238, 253);
+  --background-orange: #f7eee1;
+  --background-purple: #f2e6fd;
+  --article-boxshadow: 4px 4px 30px 0px rgba(0, 0, 0, 0.167);
+  --group-boxshadow: 0 0 16px 0 rgba(0, 0, 0, 0.107);
+  --viewportGroupNameColor: rgba(0, 0, 0, 0.137);
+  --checkboxBackgroundColor: rgba(166, 199, 113, 0.657);
+  --checkBoxBorder: 1px solid rgb(164, 185, 134);
+  --checkBoxShadow: 0 0 10px 2px rgb(220, 239, 191);
 }
-body {
+
+.darkMode {
+  --counter-color: #f5f5f5;
+  --primary-color: rgb(67, 67, 67);
+  --secondary-color: #f5f5f5;
+  --white-card-color: rgba(201, 201, 201, 0.401);
+  --icon-color: contrast(0) brightness(1.7);
+  --white: rgba(198, 198, 198, 0.785);
+  --green: rgba(158, 198, 109, 0.785);
+  --yellow: rgba(209, 192, 115, 0.749);
+  --blue: rgba(101, 140, 196, 0.785);
+  --orange: rgba(208, 163, 103, 0.785);
+  --purple: rgba(162, 129, 212, 0.785);
+  --background-red: rgb(80, 59, 59);
+  --background-green: #71885c;
+  --background-yellow: rgb(118, 109, 66);
+  --background-blue: rgb(84, 106, 134);
+  --background-orange: #826949;
+  --background-purple: #5c4570;
+  --viewportGroupNameColor: rgba(231, 231, 231, 0.168);
+  --checkboxBackgroundColor: rgba(189, 223, 134, 0.657);
+  --checkBoxBorder: 1px solid rgb(212, 239, 175);
+  --checkBoxShadow: 0 0 10px 2px rgb(121, 145, 82);
+}
+
+* {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+}
+
+.viewport {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-color: var(--primary-color);
+  overflow: hidden;
+  transition: background-color 0.5s;
+}
+
+.red {
+  background-color: var(--background-red);
+}
+
+.green {
+  background-color: var(--background-green);
+}
+
+.yellow {
+  background-color: var(--background-yellow);
+}
+
+.blue {
+  background-color: var(--background-blue);
+}
+
+.orange {
+  background-color: var(--background-orange);
+}
+
+.purple {
+  background-color: var(--background-purple);
+}
+
+div.viewport.darkmode {
+  background-color: #3e3e3e;
 }

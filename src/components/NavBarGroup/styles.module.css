@@ -1,0 +1,140 @@
+.groupFrame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43%;
+  height: 25px;
+  padding: 20px 0;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid transparent;
+  box-shadow: var(--group-boxshadow);
+  transition: border 0.3s;
+}
+
+.counter {
+  font-weight: 200;
+  align-self: flex-end;
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--counter-color);
+  user-select: none;
+}
+
+textarea {
+  display: flex;
+  width: 100%;
+  height: 82%;
+  border: 2px solid transparent;
+  background-color: transparent;
+  text-align: center;
+  outline: none;
+  resize: none;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+.deleteGroupButton {
+  position: absolute;
+  top: 0%;
+  left: -3%;
+  opacity: 0;
+  transition: 0.3s;
+  width: 12px;
+}
+
+.deleteGroupButton:hover {
+  scale: 1.15;
+}
+
+.deleteGroupButton:active {
+  scale: 0.95;
+}
+
+button.personalizeColor {
+  position: absolute;
+  top: -1%;
+  right: -3%;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+img.personalizeColor {
+  width: 13px;
+}
+
+.personalizeColor:hover {
+  scale: 1.15;
+}
+
+.personalizeColor:active {
+  scale: 0.95;
+}
+
+img.deleteGroupImg {
+  height: 13px;
+}
+
+div.groupFrame:hover > .deleteGroupButton {
+  opacity: 1;
+}
+
+div.groupFrame:hover > .personalizeColor {
+  opacity: 1;
+}
+
+div.groupFrame.white {
+  background-color: var(--white);
+}
+
+div.groupFrame.green {
+  background-color: var(--green);
+}
+
+div.groupFrame.yellow {
+  background-color: var(--yellow);
+}
+
+div.groupFrame.blue {
+  background-color: var(--blue);
+}
+
+div.groupFrame.orange {
+  background-color: var(--orange);
+}
+
+div.groupFrame.purple {
+  background-color: var(--purple);
+}
+
+div.groupFrame.white:hover {
+  border: 2px solid rgba(230, 230, 230, 0.785);
+}
+
+div.groupFrame.green:hover {
+  border: 2px solid rgba(194, 232, 144, 0.785);
+}
+
+div.groupFrame.yellow:hover {
+  border: 2px solid rgba(211, 195, 131, 0.749);
+}
+
+div.groupFrame.blue:hover {
+  border: 2px solid rgba(162, 188, 227, 0.785);
+}
+
+div.groupFrame.orange:hover {
+  border: 2px solid rgba(223, 184, 138, 0.785);
+}
+
+div.groupFrame.purple:hover {
+  border: 2px solid rgba(187, 164, 227, 0.785);
+}

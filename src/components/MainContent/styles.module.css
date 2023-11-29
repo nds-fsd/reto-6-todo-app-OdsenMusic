@@ -1,0 +1,86 @@
+main.mainContent {
+  width: calc(100% - 300px);
+  height: calc(100vh - 80px);
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 50px;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+img {
+  height: 20px;
+  filter: var(--icon-color);
+  user-select: none;
+}
+
+button.addTask,
+button.toggleDarkMode {
+  position: fixed;
+  right: 20px;
+  background-color: transparent;
+  border: 0;
+  transition: 0.2s;
+}
+
+button.addTask {
+  bottom: 15px;
+  right: 30px;
+}
+
+button.toggleDarkMode {
+  top: 15px;
+  right: 30px;
+  rotate: -40deg;
+}
+
+img.addTask {
+  height: 40px;
+  width: 40px;
+}
+
+button.deleteAll {
+  height: 36px;
+  width: 36px;
+  background-color: var(--white-card-color);
+  box-shadow: 4px 4px 30px 0px rgba(0, 0, 0, 0.167);
+  border-radius: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.addTask:hover,
+button.toggleDarkMode:hover {
+  opacity: 1;
+}
+
+button.addTask:hover {
+  scale: 1.1;
+}
+
+button.addTask:active {
+  scale: 0.9;
+}
+
+div.deleteAllContainer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.viewportGroupName {
+  position: fixed;
+  bottom: 3%;
+  left: 325px;
+  color: var(--viewportGroupNameColor);
+  font-size: 4rem;
+  font-weight: 100;
+  user-select: none;
+  height: 6rem;
+}
